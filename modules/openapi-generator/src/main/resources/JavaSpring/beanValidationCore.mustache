@@ -1,20 +1,20 @@
 {{^isUuid}}{{#pattern}}{{^isByteArray}}@Pattern(regexp = "{{{pattern}}}"{{#vendorExtensions.x-pattern-message}}, message="{{vendorExtensions.x-pattern-message}}"{{/vendorExtensions.x-pattern-message}}) {{/isByteArray}}{{/pattern}}{{!
 minLength && maxLength set
-}}{{#minLength}}{{#maxLength}}@Size(min = {{minLength}}, max = {{maxLength}}{{#vendorExtensions.x-size-message}}, message="{{{vendorExtensions.x-size-message}}}"{{/vendorExtensions.x-size-message}}) {{/maxLength}}{{/minLength}}{{!
+}}{{#minLength}}{{#maxLength}}@Size(min = {{minLength}}, max = {{maxLength}}{{#vendorExtensions.x-java-validation-message-size}}, message="{{{vendorExtensions.x-java-validation-message-size}}}"{{/vendorExtensions.x-java-validation-message-size}}) {{/maxLength}}{{/minLength}}{{!
 minLength set, maxLength not
-}}{{#minLength}}{{^maxLength}}@Size(min = {{minLength}}{{#vendorExtensions.x-size-message}}, message="{{{vendorExtensions.x-size-message}}}"{{/vendorExtensions.x-size-message}}) {{/maxLength}}{{/minLength}}{{!
+}}{{#minLength}}{{^maxLength}}@Size(min = {{minLength}}{{#vendorExtensions.x-java-validation-message-size}}, message="{{{vendorExtensions.x-java-validation-message-size}}}"{{/vendorExtensions.x-java-validation-message-size}}) {{/maxLength}}{{/minLength}}{{!
 minLength not set, maxLength set
-}}{{^minLength}}{{#maxLength}}@Size(max = {{.}}{{#vendorExtensions.x-size-message}}, message="{{{vendorExtensions.x-size-message}}}"{{/vendorExtensions.x-size-message}}) {{/maxLength}}{{/minLength}}{{!
+}}{{^minLength}}{{#maxLength}}@Size(max = {{.}}{{#vendorExtensions.x-java-validation-message-size}}, message="{{{vendorExtensions.x-java-validation-message-size}}}"{{/vendorExtensions.x-java-validation-message-size}}) {{/maxLength}}{{/minLength}}{{!
 @Size: minItems && maxItems set
-}}{{#minItems}}{{#maxItems}}@Size(min = {{minItems}}, max = {{maxItems}}{{#vendorExtensions.x-size-message}}, message="{{{vendorExtensions.x-size-message}}}"{{/vendorExtensions.x-size-message}}) {{/maxItems}}{{/minItems}}{{!
+}}{{#minItems}}{{#maxItems}}@Size(min = {{minItems}}, max = {{maxItems}}{{#vendorExtensions.x-java-validation-message-size}}, message="{{{vendorExtensions.x-java-validation-message-size}}}"{{/vendorExtensions.x-java-validation-message-size}}) {{/maxItems}}{{/minItems}}{{!
 @Size: minItems set, maxItems not
-}}{{#minItems}}{{^maxItems}}@Size(min = {{minItems}}{{#vendorExtensions.x-size-message}}, message="{{{vendorExtensions.x-size-message}}}"{{/vendorExtensions.x-size-message}}) {{/maxItems}}{{/minItems}}{{!
+}}{{#minItems}}{{^maxItems}}@Size(min = {{minItems}}{{#vendorExtensions.x-java-validation-message-size}}, message="{{{vendorExtensions.x-java-validation-message-size}}}"{{/vendorExtensions.x-java-validation-message-size}}) {{/maxItems}}{{/minItems}}{{!
 @Size: minItems not set && maxItems set
-}}{{^minItems}}{{#maxItems}}@Size(max = {{.}}{{#vendorExtensions.x-size-message}}, message="{{{vendorExtensions.x-size-message}}}"{{/vendorExtensions.x-size-message}}) {{/maxItems}}{{/minItems}}{{!
+}}{{^minItems}}{{#maxItems}}@Size(max = {{.}}{{#vendorExtensions.x-java-validation-message-size}}, message="{{{vendorExtensions.x-java-validation-message-size}}}"{{/vendorExtensions.x-java-validation-message-size}}) {{/maxItems}}{{/minItems}}{{!
 @Email: useBeanValidation
-}}{{#isEmail}}{{#useBeanValidation}}@{{javaxPackage}}.validation.constraints.Email{{#vendorExtensions.x-email-message}}(message="{{{vendorExtensions.x-email-message}}}"){{/vendorExtensions.x-email-message}} {{/useBeanValidation}}{{!
+}}{{#isEmail}}{{#useBeanValidation}}@{{javaxPackage}}.validation.constraints.Email{{#vendorExtensions.x-java-validation-message-email}}(message="{{{vendorExtensions.x-java-validation-message-email}}}"){{/vendorExtensions.x-java-validation-message-email}} {{/useBeanValidation}}{{!
 @Email: performBeanValidation exclusive
-}}{{^useBeanValidation}}{{#performBeanValidation}}@org.hibernate.validator.constraints.Email{{#vendorExtensions.x-email-message}}(message="{{{vendorExtensions.x-email-message}}}"){{/vendorExtensions.x-email-message}} {{/performBeanValidation}}{{/useBeanValidation}}{{/isEmail}}{{!
+}}{{^useBeanValidation}}{{#performBeanValidation}}@org.hibernate.validator.constraints.Email{{#vendorExtensions.x-java-validation-message-email}}(message="{{{vendorExtensions.x-java-validation-message-email}}}"){{/vendorExtensions.x-java-validation-message-email}} {{/performBeanValidation}}{{/useBeanValidation}}{{/isEmail}}{{!
 check for integer or long / all others=decimal type with @Decimal*
 isInteger set
 }}{{#isInteger}}{{#minimum}}@Min({{.}}) {{/minimum}}{{#maximum}}@Max({{.}}) {{/maximum}}{{/isInteger}}{{!
